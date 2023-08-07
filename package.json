@@ -15,12 +15,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Plumbiu/job-pnpm.git"
+		"url": "git+https://github.com/Plumbiu/jobs.git"
 	},
 	"bugs": {
-		"url": "https://github.com/Plumbiu/job-pnpm/issues"
+		"url": "https://github.com/Plumbiu/jobs/issues"
 	},
-	"homepage": "https://github.com/Plumbiu/job-pnpm#readme",
+	"homepage": "https://github.com/Plumbiu/jobs#readme",
 	"keywords": [],
 	"author": "Plumbiu",
 	"license": "MIT",
