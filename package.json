@@ -1,0 +1,56 @@
+{
+	"name": "pnpm",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/main.ts",
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"prepare": "husky install",
+		"build": "pnpm rollup --config",
+		"commit": "git-cz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Plumbiu/job-pnpm.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Plumbiu/job-pnpm/issues"
+	},
+	"homepage": "https://github.com/Plumbiu/job-pnpm#readme",
+	"keywords": [],
+	"author": "Plumbiu",
+	"license": "MIT",
+	"devDependencies": {
+		"@commitlint/cli": "^17.6.7",
+		"@commitlint/config-conventional": "^17.6.7",
+		"@rollup/plugin-node-resolve": "^15.1.0",
+		"@rollup/plugin-terser": "^0.4.3",
+		"@rollup/plugin-typescript": "^11.1.2",
+		"@typescript-eslint/eslint-plugin": "^6.2.1",
+		"@typescript-eslint/parser": "^6.2.1",
+		"commitizen": "^4.3.0",
+		"cz-git": "^1.7.0",
+		"eslint": "^8.46.0",
+		"eslint-plugin-prettier": "^5.0.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.3",
+		"prettier": "^3.0.1",
+		"rollup": "^3.27.2"
+	},
+	"lint-staged": {
+		"*.{js,ts}": [
+			"eslint --fix",
+			"prettier --write"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git",
+			"useEmoji": true
+		}
+	}
+}
