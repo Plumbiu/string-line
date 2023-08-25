@@ -24,10 +24,6 @@
     "esm": true,
   },
   "include": [
-    "packages/**/*.ts",
-    "scripts/*.ts",
-    "packages/web/**/*.vue",
-    "playground/**/*.vue",
-    "playground/**/*.ts"
+    "src/**/*.ts"
   ]
 }
