@@ -1,7 +1,7 @@
 // @see: https://cz-git.qbenben.com/zh/guide
 /** @type {import('cz-git').UserConfig} */
 
-export default {
+module.exports = {
 	ignores: [(commit) => commit.includes('init')],
 	extends: ['@commitlint/config-conventional'],
 	rules: {
