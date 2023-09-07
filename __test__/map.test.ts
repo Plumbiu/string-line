@@ -1,5 +1,5 @@
 import { test, describe, expect } from 'vitest'
-import sl from '..'
+import sl from '../index'
 
 describe('string diff', () => {
 	test('sub', () => {
@@ -73,6 +73,17 @@ describe('string diff', () => {
 		expect(diff(newStr)).toEqual({
 			subs: ['hello world', '你好世界'],
 			adds: ['世界你好', 'world hello'],
+		})
+	})
+})
+
+describe('change delimiter', () => {
+	test('use \\s', () => {
+		const str = 'hello world'
+		const diff = sl(str, /\s/)
+		expect(diff('hello')).toEqual({
+			adds: [],
+			subs: ['world'],
 		})
 	})
 })
