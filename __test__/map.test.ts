@@ -1,5 +1,5 @@
 import { test, describe, expect } from 'vitest'
-import sl from '../index'
+import sl from '..'
 
 describe('string diff', () => {
 	test('sub', () => {
