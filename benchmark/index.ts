@@ -1,29 +1,27 @@
 export default function (proxy: string, delimiter = /\n/) {
-	const source = new Map<string, number>()
+	const source: Record<string, number> = {}
 	const tokens = proxy.split(delimiter)
 	for (const token of tokens) {
 		const format = token.replace(/\t/, '').trim()
 		if (format) {
-			const count = source.get(format)
-			if (count) source.set(format, count + 1)
-			else source.set(format, 1)
+			if (source[format]) source[format] = source[format] + 1
+			else source[format] = 1
 		}
 	}
 	return (diffStr: string) => {
 		const subs: string[] = []
 		const adds: string[] = []
 		const tokens = diffStr.split(delimiter)
-		const target = new Map<string, number>()
+		const target: Record<string, number> = {}
 		for (const token of tokens) {
 			const format = token.replace(/\t/, '').trim()
 			if (format) {
-				const count = target.get(format)
-				if (count) target.set(format, count + 1)
-				else target.set(format, 1)
+				if (target[format]) target[format] = source[format] + 1
+				else target[format] = 1
 			}
 		}
-		for (const [key, count] of source.entries()) {
-			const targetCount = target.get(key)
+		for (const [key, count] of Object.entries(source)) {
+			const targetCount = target[key]
 			if (targetCount) {
 				if (targetCount > count) {
 					for (let i = 0; i < targetCount - count; i++) adds.push(key)
@@ -34,13 +32,13 @@ export default function (proxy: string, delimiter = /\n/) {
 				subs.push(key)
 			}
 		}
-		for (const [key, count] of target.entries()) {
-			const sourceCount = source.get(key)
-			if (sourceCount) {
-				if (sourceCount < count) {
-					for (let i = 0; i < sourceCount - count; i++) adds.push(key)
+		for (const [key, count] of Object.entries(target)) {
+			const objCOunt = source[key]
+			if (objCOunt) {
+				if (objCOunt < count) {
+					for (let i = 0; i < objCOunt - count; i++) adds.push(key)
 				} else {
-					for (let i = 0; i < count - sourceCount; i++) subs.push(key)
+					for (let i = 0; i < count - objCOunt; i++) subs.push(key)
 				}
 			} else {
 				adds.push(key)
