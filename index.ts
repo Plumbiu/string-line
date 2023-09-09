@@ -1,6 +1,6 @@
 import { loadMap } from './utils'
 
-export default function (proxy: string, delimiter = /\n/) {
+export default function (proxy: string, delimiter: RegExp) {
 	const source = loadMap(proxy, delimiter)
 	return (diffStr: string) => {
 		const target = loadMap(diffStr, delimiter)
