@@ -51,3 +51,7 @@ console.log(diff('hello')
   }
 */
 ```
+
+## 为什么不是 diff
+
+事实上 `string-line` 和 `diff` 应用的范围、甚至返回的格式不一样，`diff` 可以用于 `object`、`array` 等各种类型的比较，`string-line` 只适用于字符串，因此不能将两者混为一谈。
